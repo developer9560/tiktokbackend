@@ -26,7 +26,7 @@ class Settings(BaseModel):
     max_search_target_count: int = 5000
     language_confidence_threshold: float = 0.8
     snapshot_poll_interval_seconds: float = 5.0
-    cors_origins_raw: str = "http://localhost:5173,http://127.0.0.1:5173"
+    cors_origins_raw: str = "http://localhost:5173,http://127.0.0.1:5173 , https://tiktok-rho-woad.vercel.app , https://tiktok-rho-woad.vercel.app/"
 
     @field_validator("request_timeout_seconds")
     @classmethod

@@ -22,7 +22,7 @@ def test_settings_ignore_dotenv_and_read_only_process_secrets(monkeypatch, tmp_p
     assert Settings().request_timeout_seconds == 120.0
     assert Settings().mysql_host == "127.0.0.1"
     assert Settings().mysql_port == 3306
-    assert Settings().mysql_user == "root"
+    assert Settings().mysql_user == "tiktok_user"
     assert Settings().mysql_database == "tiktokdb"
     assert Settings().brightdata_api_token is None
     assert Settings().mysql_password is None
@@ -38,7 +38,7 @@ def test_settings_ignore_dotenv_and_read_only_process_secrets(monkeypatch, tmp_p
     database_url = database.resolve_database_url(config)
     assert database_url is not None
     assert database_url.drivername == "mysql+pymysql"
-    assert database_url.username == "root"
+    assert database_url.username == "tiktok_user"
     assert database_url.host == "127.0.0.1"
     assert database_url.database == "tiktokdb"
     assert database_url.password == "process-password"

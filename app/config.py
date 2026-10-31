@@ -17,7 +17,7 @@ class Settings(BaseModel):
     brightdata_base_url: str = "https://api.brightdata.com"
     mysql_host: str = "127.0.0.1"
     mysql_port: int = 3306
-    mysql_user: str = "root"
+    mysql_user: str = "tiktok_user"
     mysql_password: SecretStr | None = Field(default_factory=lambda: _process_secret("MYSQL_PASSWORD"))
     mysql_database: str = "tiktokdb"
     request_timeout_seconds: float = 120.0

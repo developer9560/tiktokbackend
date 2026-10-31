@@ -2,7 +2,7 @@
 services:
 
   backend:
-    build: .
+    build: ./tiktokbackend
     container_name: tiktok-backend
     restart: unless-stopped
 

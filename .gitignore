@@ -1,0 +1,17 @@
+.venv/
+venv/
+.myvenv/
+myvenv/
+__pycache__/
+*.py[cod]
+.env
+.env.*
+!.env.example
+clipscope.db
+clipscope.db-shm
+clipscope.db-wal
+.pytest_cache/
+.mypy_cache/
+.idea/
+.vscode/
+.DS_Store

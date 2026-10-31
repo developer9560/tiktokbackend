@@ -1,0 +1,37 @@
+services:
+
+  backend:
+    build: .
+    container_name: tiktok-backend
+    ports:
+      - "8001:8000"
+    env_file:
+      - .env
+    environment:
+      # Connect using the service name 'mysql' because Docker networking resolves it
+      - DATABASE_URL=mysql+pymysql://root:root@mysql:3306/tiktokdb
+    depends_on:
+      - mysql
+    networks:
+      - tiktok_network
+
+  mysql:
+    image: mysql:8.0
+    container_name: tiktok-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: tiktokdb
+    ports:
+      # Exposes MySQL to your host on port 3307 so it doesn't conflict with other DBs
+      - "3307:3306"
+    volumes:
+      - tiktok_mysql_data:/var/lib/mysql
+    networks:
+      - tiktok_network
+
+volumes:
+  tiktok_mysql_data:
+
+networks:
+  tiktok_network:
+    driver: bridge
